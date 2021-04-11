@@ -16,4 +16,5 @@ function primeFactors(num){
 let number = parseInt(input.question("Enter the number: "));
 
 let factors = primeFactors(number);
+factors.unshift(1);
 console.log("Prime factors: " + factors);
