@@ -1,6 +1,6 @@
 const input = require("readline-sync");
 
-let arrayOfIntegers = new Array();
+let arrayOfIntegers = new Array(0, -1, 2, -3, 1);
 let tripletMap = new Map();
 
 function inputIntoTheArray(){
@@ -75,10 +75,11 @@ function findTriplets(array, tripletMap){
 }
 
 
-inputIntoTheArray();
+//inputIntoTheArray();
+
 console.log(arrayOfIntegers)
-//arrayOfIntegers.sort();
-merge_sort(arrayOfIntegers, 0, arrayOfIntegers.length - 1);
+arrayOfIntegers.sort((a, b)=> a-b);
+//merge_sort(arrayOfIntegers, 0, arrayOfIntegers.length - 1);
 console.log(arrayOfIntegers);
 findTriplets(arrayOfIntegers, tripletMap);
 //The triplets 
