@@ -15,6 +15,8 @@ class EmployeePayrollData{
         this.salary = params[2];
         this.gender = params[3];
         this.startDate = params[4];
+        this.pinCode = params[5];
+        this.email = params[6];
     }
 
     //getter and setter
@@ -83,6 +85,27 @@ class EmployeePayrollData{
         }
     }
 
+    get pinCode() { return this._pinCode; }
+    set pinCode(pincode){
+        if(typeof pincode === "undefined")
+            return;
+        let pincodeString = pincode.toString();
+        let pinCodeRegex = /[1-9][0-9]{2}\s[0-9]{3}/;
+        if(pinCodeRegex.test(pincodeString))
+            this._pinCode = parseInt(pincode);
+        else throw "Incorrect Pincode";
+    }
+
+    get email() { return this._email; }
+    set email(email) { 
+        if(typeof email === "undefined")
+            return;
+        let emailRegex = RegExp("^([a-zA-Z0-9+-])+(\\.?[a-zA-Z0-9_+-])*@[a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.]?[a-zA-Z]{2,3})?$");
+        if(emailRegex.test(email))
+            this._email = email;
+        else throw "Invalid email";
+    }
+
     //method
     toString(){ 
         const options = {year : 'numeric', month : 'long', day : 'numeric'};
@@ -149,6 +172,20 @@ try{
 try{
     let newEmployeePayrollData = new EmployeePayrollData("3", "Stella", "8000", "F", "2050-11-25");
     console.log(newEmployeePayrollData.toString());
+}catch(e){
+    console.error(e);
+}
+
+try{
+    let newemployeePayrollData = new EmployeePayrollData(4, "Kramer", 4000, "M", new Date(), "400 088", "abc@yahoo.com");
+    console.log(newemployeePayrollData.toString());
+}catch(e){
+    console.error(e);
+}
+
+try{
+    let newemployeePayrollData = new EmployeePayrollData(4, "Kramer", 4000, "M", new Date(), "400 088", "abc123@gmail.a");
+    console.log(newemployeePayrollData.toString());    
 }catch(e){
     console.error(e);
 }
