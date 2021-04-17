@@ -1,11 +1,5 @@
 let currentDate = new Date();
 class EmployeePayrollData {
-    //property
-    // id;
-    // name;
-    // salary;
-    // gender;
-    // startDate;
 
     //constructor
     //in java script only one constructor is used
