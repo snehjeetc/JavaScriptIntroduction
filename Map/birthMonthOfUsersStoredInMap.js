@@ -42,7 +42,7 @@ function storeUserData(userName, monthName){
         birthMonths_Of_users.set(monthName, [userName]);
 }
 
-function printCommonBirthMonthsOfUsers(){
+function printBirthMonthsOfUsers(){
     for(let [key, value] of birthMonths_Of_users.entries()){
         console.log(key + ": " + value);
     }
